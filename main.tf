@@ -38,7 +38,7 @@ data "aws_ami" "amazon-linux" {
 resource "aws_launch_configuration" "terramino" {
   name_prefix     = "terramino-"
   image_id        = data.aws_ami.amazon-linux.id
-  instance_type   = "t2.small"
+  instance_type   = "t2.micro"
   user_data       = file("user-data.sh")
   security_groups = [aws_security_group.terramino_instance.id]
 
