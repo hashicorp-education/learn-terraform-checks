@@ -25,7 +25,7 @@ module "vpc" {
   enable_dns_support   = true
 }
 
-data "aws_ami" "amazon-linux" {
+data "aws_ami" "amazon_linux" {
   most_recent = true
   owners      = ["amazon"]
 
@@ -37,7 +37,7 @@ data "aws_ami" "amazon-linux" {
 
 resource "aws_launch_configuration" "terramino" {
   name_prefix     = "terramino-"
-  image_id        = data.aws_ami.amazon-linux.id
+  image_id        = data.aws_ami.amazon_linux.id
   instance_type   = "t2.micro"
   user_data       = file("user-data.sh")
   security_groups = [aws_security_group.terramino_instance.id]
